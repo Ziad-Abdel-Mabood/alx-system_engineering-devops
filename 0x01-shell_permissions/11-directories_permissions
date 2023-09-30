@@ -1,2 +1,2 @@
 #!/bin/bash
-chmod uog+x * -d
+chmod uog+x ./* -type d
