@@ -1,0 +1,6 @@
+#!/bin/bash
+mkdir fake_js
+touch fake_js/{main,dir,fake1,fake2}.js
+mkdir fake_js/jsdir.js
+touch fake_js/notjsfile
+touch fake_js/notjsfilejs
