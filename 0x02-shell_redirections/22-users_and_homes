@@ -1,2 +1,2 @@
 #!/bin/bash
-cut --delimiter ":" -f "1,6" -s /etc/passwd
+cut --delimiter ":" -f "1,6" -s /etc/passwd | sort -g
