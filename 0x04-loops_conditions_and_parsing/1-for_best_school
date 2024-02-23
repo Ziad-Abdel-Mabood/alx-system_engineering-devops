@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# prints "Best School" 10 times
+
+LIST="BestSchool
+BestSchool
+BestSchool
+BestSchool
+BestSchool
+BestSchool
+BestSchool
+BestSchool
+BestSchool
+BestSchool
+"
+
+for i in $LIST; do echo "$i"; done
