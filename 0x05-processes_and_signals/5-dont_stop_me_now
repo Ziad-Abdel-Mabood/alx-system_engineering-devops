@@ -2,5 +2,4 @@
 # stops 4-to_infinity_and_beyond process.
 
 infinity_pid=$(pgrep -f 4-to_infinity)
-echo "$infinity_pid"
 kill "$infinity_pid"
