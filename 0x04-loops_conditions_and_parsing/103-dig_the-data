@@ -3,4 +3,4 @@
 # status code from the Apache log file.
 
 
-printf "%-s %s %s\n" $(awk '{ print $1,$9 }' apache-access.log | sort | uniq -c | sort -k 1nr)
+awk '{ print $1,$9 }' apache-access.log | sort | uniq -c | sort -k 1nr | awk '{printf "    %-s %s %s\n", $1, $2, $3}'
