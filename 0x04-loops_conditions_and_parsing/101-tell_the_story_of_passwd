@@ -2,7 +2,7 @@
 # reads /etc/passwd file and prints its story
 
 while IFS= read -r line; do
-	echo -n "the user ";					echo -n "$line" | cut -d':' -f1 | tr -d $'\n' #USERNAME		
+	echo -n "The user ";					echo -n "$line" | cut -d':' -f1 | tr -d $'\n' #USERNAME		
 	echo -n " is part of the ";				echo -n "$line" | cut -d':' -f4	| tr -d $'\n' #GROUP_ID
 	echo -n " gang, lives in ";				echo -n "$line" | cut -d':' -f6	| tr -d $'\n' #HOME_DIRECTORY
 	echo -n " and rides ";					echo -n "$line" | cut -d':' -f7	| tr -d $'\n' #COMMAND/SHELL
