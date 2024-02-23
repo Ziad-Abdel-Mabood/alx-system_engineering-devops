@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# displays PID
+
+ps | awk '$NF=="ps" {print $1}'
