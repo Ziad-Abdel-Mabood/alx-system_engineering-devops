@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
 input = ARGV[0]
-regex = /hbt*n/
+regex = /^h.n$/
 match_array = input.scan(regex)
 
 match_array.each {|match| print match }
