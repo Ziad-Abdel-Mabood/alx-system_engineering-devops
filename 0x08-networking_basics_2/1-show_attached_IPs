@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 # displays all active IPv4 IPs on the machine it's executed on
 
-ip -br address | grep -Eo '[[:digit:]]+\.[[:digit:]]+\.[[:digit:]]+\.[[:digit:]]+'
+ip addr show | grep -Eo '[[:digit:]]+\.[[:digit:]]+\.[[:digit:]]+\.[[:digit:]]+'
