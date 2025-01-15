@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 #configures NGINX server so that /redirect_me is redirecting to another page
 
-STRING="error_page 404 /404.html;\n\nlocation /404.html {\nroot /var/www/html;\ninternal;\n}\n\n"
+STRING="location /redirect_me {\nreturn 301 https://z-alx.tech/;\n}\n\nerror_page 404 /404.html;\n\nlocation /404.html {\nroot /var/www/html;\ninternal;\n}\n\n"
 
 apt-get -y update
 apt-get -y install nginx
