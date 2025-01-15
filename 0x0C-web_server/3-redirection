@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+#configures NGINX server so that /redirect_me is redirecting to another page
+
+STRING="location / {\ntry_files $uri $uri/ =404;\n}\n\nlocation /redirect_me {\nreturn 301 https://z-alx.tech/;\n}"
+
+apt-get -y update
+apt-get -y install nginx
+sed -i "s/location\n.*\n.*\n.*/$STRING/g" /etc/nginx/sites-available/default
+echo "Hello World!" > /var/www/html/index.html
+nginx 
