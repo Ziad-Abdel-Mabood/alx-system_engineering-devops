@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# configures an ubuntu machine to install nginx, listening on port 80
+# when querying Nginx at its root with a GET request using curl
+# it must return a page that contains 'Hello World!'
+
+apt-get -y update
+apt-get -y install nginx
+echo "Hello World!" > /var/www/html/index.html
+nginx 
