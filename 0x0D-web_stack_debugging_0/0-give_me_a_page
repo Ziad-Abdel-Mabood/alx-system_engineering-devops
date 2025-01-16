@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# get Apache to run on the container and to return a page
+# containing Hello ALX when querying the root of it.
+
+sudo apt-get update
+sudo apt-get install apache2
+sudo /etc/init.d/apache2 start
+echo 'Hello ALX' > /var/www/html/index.html
+sudo apachectl graceful
+
