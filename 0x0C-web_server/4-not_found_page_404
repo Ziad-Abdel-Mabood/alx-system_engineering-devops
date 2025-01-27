@@ -1,11 +1,33 @@
 #!/usr/bin/env bash
 #configures NGINX server so that /redirect_me is redirecting to another page
 
-STRING="location / {\n}\n\nlocation /redirect_me {\nreturn 301 https://z-alx.tech/;\n}\n\nerror_page 404 /404.html;\n\nlocation /404.html {\nroot /var/www/html;\ninternal;\n}\n\n"
+STRING='\	location / {\
+\		try_files $uri $uri/ =404;\
+\		error_page 404 /404.html;\
+\	}\
+\
+\	location /404.html {\
+\		root /var/www/html;\
+\		internal;\
+\	}\
+\
+\	location /redirect_me {\
+\		return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;\
+\	}'
 
 apt-get -y update
 apt-get -y install nginx
-sed -i "s/location\n.*\n.*\n.*/$STRING/g" /etc/nginx/sites-available/default
+nginx
+
+# append new config to enabled sites
+sed -i '/location/ {
+	N
+	N
+	c\'"$STRING"'
+}' /etc/nginx/sites-enabled/default
+
+# landing and error pages
 echo "Hello World!" > /var/www/html/index.html
 echo "Ceci n'est pas une page" > /var/www/html/404.html
-nginx 
+
+nginx -s reload

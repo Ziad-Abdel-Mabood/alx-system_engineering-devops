@@ -1,10 +1,26 @@
 #!/usr/bin/env bash
 #configures NGINX server so that /redirect_me is redirecting to another page
 
-STRING="location / {\n}\n\nlocation /redirect_me {\nreturn 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;\n}\n\n"
+STRING='\	location / {\
+\		try_files $uri $uri/ =404;\
+\	}\
+\
+\	location /redirect_me {\
+\		return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;\
+\	}'
 
 apt-get -y update
 apt-get -y install nginx
-sed -i "s/location\n.*\n.*\n.*/$STRING/g" /etc/nginx/sites-available/default
+nginx
+
+#append new config to default location directive
+sed -i '/location/ {
+	N
+	N
+	c\'"$STRING"'
+}' /etc/nginx/sites-enabled/default
+
+# landing page
 echo "Hello World!" > /var/www/html/index.html
-nginx 
+
+nginx -s reload
