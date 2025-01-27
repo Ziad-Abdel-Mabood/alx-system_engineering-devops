@@ -14,11 +14,7 @@ apt-get -y install nginx
 nginx
 
 #append new config to default location directive
-sed -i '/location/ {
-	N
-	N
-	c\'"$STRING"'
-}' /etc/nginx/sites-enabled/default
+echo "$STRING" >> /etc/nginx/sites-enabled/default
 
 # landing page
 echo "Hello World!" > /var/www/html/index.html
