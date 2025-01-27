@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-#configures NGINX server so that /redirect_me is redirecting to another page
+# configures NGINX server so that /redirect_me is redirecting to another page
 
 STRING='\	location /redirect_me {\
 \		return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;\
